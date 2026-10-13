@@ -1,0 +1,42 @@
+<properties>
+		<java.version>21</java.version>
+		<mapstruct.version>1.6.3</mapstruct.version>
+		<lombok.version>1.18.42</lombok.version>
+	</properties>
+
+add this in <dependencies>
+<!-- MapStruct API -->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${mapstruct.version}</version>
+		</dependency>
+
+change this in <plugin>   <configuration>
+
+<configuration>
+							<release>${java.version}</release>
+							<annotationProcessorPaths>
+								<!-- MapStruct implementation generator -->
+								<path>
+									<groupId>org.mapstruct</groupId>
+									<artifactId>mapstruct-processor</artifactId>
+									<version>${mapstruct.version}</version>
+								</path>
+
+								<!-- Lombok annotation processor -->
+								<path>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok</artifactId>
+									<version>${lombok.version}</version>
+								</path>
+
+								<!-- Lombok + MapStruct compatibility -->
+								<path>
+									<groupId>org.projectlombok</groupId>
+									<artifactId>lombok-mapstruct-binding</artifactId>
+									<version>0.2.0</version>
+								</path>
+							</annotationProcessorPaths>
+						</configuration>
+
